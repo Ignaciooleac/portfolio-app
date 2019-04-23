@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+gem 'rubocop-performance'
+#Active_storage for preview
+gem 'image_processing', '~> 1.2'
+#Rails admin plataform
 gem 'rails_admin'
 # Cancan
 gem 'cancancan'

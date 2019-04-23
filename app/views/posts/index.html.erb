@@ -1,15 +1,33 @@
 <h1>Listing all Post</h1>
+<p>
+  <%= link_to "Create new post", new_post_path %>
+</p>
 <table>
- <tr>
-  <th>Title</th>
-  <th>Description</th>
- </tr>
- <% @posts.each do |post| %>
- <tr>
-  <td><%= post.title %></td>
-  <td><%= post.description %></td>
-  <td><%= link_to 'Edit', edit_post_path(post) %></td>
+  <tr>
+    <th>Created by</th>
+    <th>Title</th>
+    <th>Description</th> 
+    <th>Category</th>
+    <th>Tags</th>
+  </tr>
+  <% @posts.each do |post| %>
+  <tr>
+    <td><%= "#{post.user.first_name} #{post.user.last_name}" %> </td>
+    <td><%= post.title %></td>
+    <td><%= post.description %></td>
+    <td><%= post.category.name %></td>
+    <td>
+      <% post.tags.each do |tag|%>
+      <%= tag.name %>
+      <% end %>
+    </td>
+    <td>
+      <% post.images.each do |image| %>
+      <%= image_tag image.variant(resize: '100x100') %>
+      <% end %>
+    </td>
+    <td><%=link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Show', post_path(post) %></td>
- </tr>
- <% end %>
+  </tr>
+  <% end %>
 </table>
