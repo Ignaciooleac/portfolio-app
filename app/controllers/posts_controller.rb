@@ -28,10 +28,7 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
     end
     
-
     def update
-
-        
         @post = Post.find(params[:id])
         if @post.update(post_params)
             flash[:notice] = "Post was updated"
@@ -46,8 +43,21 @@ class PostsController < ApplicationController
         @posts = Post.all
     end
 
+    def destroy
+        @post= Post.find(params[:id])
+        @post.destroy
+        flash[:notice] = "Post was deleted"
+        redirect_to posts_path
+       end
+
+    def delete_attachment
+        @post_attachment = ActiveStorage::Attachment.find(params[:id])
+        @post_attachment.purge
+        redirect_back(fallback_location: request.referer)
+    end
+
     private
     def post_params
-        params.require(:post).permit(:title, :description, :category_id, tag_ids: [], images: [])
+        params.require(:post).permit(:title, :description, :category_id, :thumbnail, tag_ids: [], images: [])
     end       
 end

@@ -15,7 +15,18 @@
     <%= f.collection_select(:tag_ids, Tag.all, :id, :name, {}, {class: "multiple", multiple: "multiple"}) %>
 </p>
 <p>
+Agrega un Thumbnail! <%= f.file_field :thumbnail %>
+<%= post_thumbnail(@post) %>
+<% if @post.thumbnail.attached? %>
+<%= link_to 'Remove', deleteattachment_path(@post.thumbnail.id),method: :delete, data: { confirm: 'Are you sure?' } %>
+<%end%>
+</p>
+<p>
     <%= f.file_field :images, multiple: true %>
+    <% @post.images.each do |image| %>
+        <%= image_tag image.variant(resize: '100x100') %>
+        <%= link_to 'Remove', deleteattachment_path(image.id),method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
 </p>
 <p>
     <%= f.label :title %><br>

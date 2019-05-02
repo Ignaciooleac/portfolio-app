@@ -1,24 +1,32 @@
 <h1>Showing selected post</h1>
 <p>
-    Created by: <%= link_to "#{@post.user.first_name} #{@post.user.last_name}", user_path %>
+  Created by: <%= link_to "#{@post.user.first_name} #{@post.user.last_name}", user_path(@post.user.id) %>
 </p>
 <p>
-    Title: <%= @post.title %>
+  Title: <%= @post.title %>
+</p>
+
+<p>
+  Thumbnail: <%= post_thumbnail(@post) %>
+</p>
+
+<p>
+  Description: <%= @post.description %>
 </p>
 <p>
-    Description: <%= @post.description %>
-</p>
-<p>
-    Category: <%= @post.category.name %>
+  Category: <%= @post.category.name %>
 </p>
 <ul>
 
-    <% @post.images.each do |image| %>
-    <li>
-        <%= image_tag image.variant(resize: "500x500") %>
-    </li>
-    <% end %>
+  <% @post.images.each do |image| %>
+  <li>
+    <%= image_tag image.variant(resize: "500x500") %>
+  </li>
+  <% end %>
 
 </ul>
-<%= link_to "Edit", edit_post_path(@post) %>
+<% if current_user.id == @post.user.id %>
+<td><%= link_to "Edit", edit_post_path(@post) %> </td>
+<td><%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %></td>
+<% end %>
 <%= link_to 'Back', posts_path %>

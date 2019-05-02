@@ -1,1 +1,35 @@
-<%= @user.email %>
+<h1>Showing User</h1>
+<%= "#{@user.first_name} #{@user.last_name}" %>
+<%= user_avatar(@user)%>
+<%= link_to 'Back', posts_path %>
+
+<table>
+  <tr>
+    <th>Created by</th>
+    <th>Title</th>
+    <th>Description</th> 
+    <th>Category</th>
+    <th>Tags</th>
+  </tr>
+  <% @user.posts.each do |post| %>
+  <tr>
+    <td><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(post.user.id) %> </td>
+    <td><%= post.title %></td>
+    <td><%= post.description %></td>
+    <td><%= post.category.name %></td>
+    <td>
+      <% post.tags.each do |tag|%>
+      <%= tag.name %>
+      <% end %>
+    </td>
+    <td>
+    <%= post_thumbnail(post) %>
+    </td>
+    <% if current_user.id == @user.id %>
+    <td><%=link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} %></td>
+    <% end %>
+    <td><%= link_to 'Show', post_path(post) %></td>
+  </tr>
+  <% end %>
+</table>

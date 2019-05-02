@@ -12,7 +12,10 @@
   </tr>
   <% @posts.each do |post| %>
   <tr>
-    <td><%= "#{post.user.first_name} #{post.user.last_name}" %> </td>
+    <td>
+    <%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(post.user.id) %> 
+    <%= avatar_on_post(post) %> 
+    </td>
     <td><%= post.title %></td>
     <td><%= post.description %></td>
     <td><%= post.category.name %></td>
@@ -22,12 +25,14 @@
       <% end %>
     </td>
     <td>
-      <% post.images.each do |image| %>
-      <%= image_tag image.variant(resize: '100x100') %>
-      <% end %>
+    <%= post_thumbnail(post) %>
     </td>
+    <% if current_user.id == post.user_id %>
     <td><%=link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} %></td>
+    <% end %>
     <td><%= link_to 'Show', post_path(post) %></td>
+    
   </tr>
   <% end %>
 </table>
