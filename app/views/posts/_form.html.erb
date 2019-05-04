@@ -1,13 +1,28 @@
 <% if @post.errors.any? %>
-<h2>The following errors prevented the post from saving:</h2>
-<ul>
-    <% @post.errors.full_messages.each do |msg|%>
-    <li><%= msg %></li>
-    <% end %>
-</ul>
+ <div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+   <div class="panel panel-danger">
+    <div class="panel-heading">
+     <h2 class="panel-title">
+      <%= pluralize(@post.errors.count, "error") %>
+      prohibited this article from being saved:
+     </h2>
+     <div class="panel-body">
+      <ul>
+       <% @post.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+       <% end %>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
 <% end %>
 
-<%= form_for @post do |f| %>
+<div class="row">
+ <div class="col-xs-12">
+  <%= form_for(@post, :html => {class: "form-horizontal", role: "form"}) do |f| %>
 <p>
     <%= f.collection_select(:category_id, Category.all, :id, :name,) %>
 </p>
@@ -15,30 +30,39 @@
     <%= f.collection_select(:tag_ids, Tag.all, :id, :name, {}, {class: "multiple", multiple: "multiple"}) %>
 </p>
 <p>
-Agrega un Thumbnail! <%= f.file_field :thumbnail %>
-<%= post_thumbnail(@post) %>
+Add Thumbnail! <%= f.file_field :thumbnail %>
 <% if @post.thumbnail.attached? %>
 <%= link_to 'Remove', deleteattachment_path(@post.thumbnail.id),method: :delete, data: { confirm: 'Are you sure?' } %>
 <%end%>
 </p>
-<p>
     <%= f.file_field :images, multiple: true %>
     <% @post.images.each do |image| %>
         <%= image_tag image.variant(resize: '100x100') %>
         <%= link_to 'Remove', deleteattachment_path(image.id),method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-</p>
-<p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-</p>
-<p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-</p>
-<p>
-    <%= f.submit %>
-</p>
+<div class="form-group">
+<div class="control-label col-sm-2">
+ <%= f.label :title %>
+</div>
+<div class="col-sm-6">
+ <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>
+</div>
+</div>
+<div class="form-group">
+<div class="control-label col-sm-2">
+ <%= f.label :description %>
+</div>
+<div class="col-sm-6">
+ <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Body of article" %>
+</div>
+</div>
+<div class="form-group">
+<div class="col-sm-offset-2 col-sm-10">
+ <%= f.submit class: 'btn btn-primary btn-large' %>
+</div>
+</div>
 
 <% end %>
 <%= link_to 'Back', posts_path %>
+</div>
+</div>

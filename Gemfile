@@ -3,6 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+#boostrap
+gem 'bootstrap', '~> 4.3.1'
+#jquery
+gem 'jquery-rails'
+#rubocop
 gem 'rubocop-performance'
 #Active_storage for preview
 gem 'image_processing', '~> 1.2'

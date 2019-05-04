@@ -1,30 +1,33 @@
-<h1>Showing selected post</h1>
-<p>
-  Created by: <%= link_to "#{@post.user.first_name} #{@post.user.last_name}", user_path(@post.user.id) %>
-</p>
-<p>
-  Title: <%= @post.title %>
-</p>
+<h3 align="center">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="card">
+        <div class="avatar">
+          <%= avatar_on_post(@post) %>
+        </div>
+        <div class="content">
+          <%= link_to "#{@post.user.first_name} #{@post.user.last_name}", user_path(@post.user.id) %>
+        </div>
+      </div>
+    </div>
+</h3>
 
-<p>
-  Thumbnail: <%= post_thumbnail(@post) %>
-</p>
-
-<p>
+<div class="well col-xs-8 col-xs-offset-2">
+  <h2 align="center"><%= @post.title %></h2>
+  <%= @post.category.name %>
+  <%= post_thumbnail(@post) %>
+  <h4 class="center"><strong>Description:</strong></h4>
   Description: <%= @post.description %>
-</p>
-<p>
-  Category: <%= @post.category.name %>
-</p>
-<ul>
-
-  <% @post.images.each do |image| %>
-  <li>
-    <%= image_tag image.variant(resize: "500x500") %>
-  </li>
-  <% end %>
-
-</ul>
+</div>
+</div>
+<div class="well col-xs-8 col-xs-offset-2">
+  <div class="row">
+    <h4 class="center col-xs-8"><strong>Files</strong></h4>
+    <% @post.images.each do |image| %>
+    <%= image_tag image.variant(combine_options:{resize:"40%",gravity: "center"}) %>
+    <% end %>
+  </div>
+</div>
 <% if current_user.id == @post.user.id %>
 <td><%= link_to "Edit", edit_post_path(@post) %> </td>
 <td><%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %></td>
