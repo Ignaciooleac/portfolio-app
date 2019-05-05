@@ -7,7 +7,7 @@
       <li class="active"><%= link_to 'Home', posts_path %></a></li>
       <li><a href="#">Page 1</a></li>
       <li><a href="#">Page 2</a></li>
-      <li><a <%=link_to "#{current_user.first_name} #{current_user.last_name}", current_user %></a></li>
+      <li><a <%=link_to "#{current_user.name}", current_user %></a></li>
       <li><a <%= link_to "Log out", destroy_user_session_path, :method => :delete %></a></li>
     </ul>
   </div>

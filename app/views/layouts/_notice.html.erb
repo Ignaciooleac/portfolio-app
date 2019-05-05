@@ -2,7 +2,7 @@
 <p class="alert"><%= alert %></p>
 <%= yield %>
 <% if user_signed_in? %>
-Signed in as <%= "#{current_user.first_name} #{current_user.last_name}" %>. Not you?
+Signed in as <%= "#{current_user.name}" %>. Not you?
 <%= link_to "Edit profile", edit_user_registration_path %>
 <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
 <% end %>

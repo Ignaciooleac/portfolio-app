@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
-
+gem 'omniauth-facebook'
 #boostrap
 gem 'bootstrap', '~> 4.3.1'
 #jquery
