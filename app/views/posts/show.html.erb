@@ -6,7 +6,7 @@
           <%= avatar_on_post(@post) %>
         </div>
         <div class="content">
-          <%= link_to "#{@post.user.first_name} #{@post.user.last_name}", user_path(@post.user.id) %>
+          <%= link_to "#{@post.user.name}", user_path(@post.user.id) %>
         </div>
       </div>
     </div>
