@@ -43,6 +43,8 @@ Add additional notes about how to deploy this on a live system
 * Database Diagram
 ![Image of diagram]
 (../assets/images/asdasdadadasdadada%20(1).png?raw=true)
+![Alt text](/app/assets/images/asdasdadadasdadada (1).png)
+
 
 ## Built With
 
