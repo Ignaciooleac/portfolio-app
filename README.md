@@ -81,10 +81,10 @@ See also the list of [contributors](https://github.com/Ignaciooleac/portfolio-ap
 
 * Thanks to:
 * My teachers at [Desafio Latam].
-    -Erwin Enaguero
-    -Pamela Riquelme
-    -Guillermo Gibson
-    -Alejandro Rodriguez
+....* Erwin Enaguero
+....* Pamela Riquelme
+....* Guillermo Gibson
+....* Alejandro Rodriguez
 
 * https://desafiolatam.com/
 * https://stackoverflow.com/
