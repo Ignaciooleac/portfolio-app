@@ -41,8 +41,8 @@ Add additional notes about how to deploy this on a live system
 
 ## Info
 * Database Diagram
-![Image of diagram
-(https://github.com/Ignaciooleac/portfolio-app/app/assets/images/asdasdadadasdadada (1).png)]
+![Image of diagram]
+(https://github.com/Ignaciooleac/portfolio-app/blob/master/app/assets/images/asdasdadadasdadada%20(1).png)]
 
 ## Built With
 
