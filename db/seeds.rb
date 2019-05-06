@@ -17,18 +17,20 @@ category = Category.create([{name:"Architecture"},{name: "Hand Draw"},{name: "Sp
     )
 end
 
+User.create(name:"admin",email:"admin@mail.com",password:"123456",admin:true)
+
 users = User.all
-2.times do |n|
-    user = users.each
+10.times do |n|
+    user = users.all.sample
     title = "Sample Title#{n+1}"
-    category = Category.all.sample.id
+    category = Category.all.sample
     description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem non ipsum malesuada feugiat. Duis fringilla semper nibh quis tincidunt."
-    Post.create!(user: user,
+    Post.create!(
+        user: user,
         title: title,
-                category: category,
-                description: description
-                
-                )
+        category: category,
+        description: description,
+        tag_ids: [Tag.all.sample.id])
 end
 
 #    tags = Tag.all.sample
