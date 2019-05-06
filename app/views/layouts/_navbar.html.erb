@@ -8,7 +8,10 @@
       <li><a <%= link_to "Create new post", new_post_path %></a> </li> 
       <li><a<span class="navbar-text">Signed as:</span> <%=link_to "#{current_user.name}", current_user %></a></li>
       <li><a <%= link_to "Edit profile", edit_user_registration_path %></a></li> 
-      <li><a <%= link_to "Log out", destroy_user_session_path, :method => :delete %></a></li> 
+      <li><a <%= link_to "Log out", destroy_user_session_path, :method => :delete %></a></li>
+      <% if current_user.admin = true %>
+      <li style="background-color:#ff6961"><a <%= link_to "Admin Dashboard", rails_admin.dashboard_path %></a></li>
+      <% end %>
     </ul> 
   </div> 
 </nav>
