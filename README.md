@@ -42,7 +42,7 @@ Add additional notes about how to deploy this on a live system
 ## Info
 * Database Diagram
 ![Image of diagram]
-(https://github.com/Ignaciooleac/portfolio-app/blob/master/app/assets/images/asdasdadadasdadada%20(1).png)]
+(../assets/images/asdasdadadasdadada%20(1).png?raw=true)
 
 ## Built With
 
