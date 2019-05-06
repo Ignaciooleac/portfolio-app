@@ -39,6 +39,11 @@ This will populate our database with Categories and Tags, everything we need to 
 
 Add additional notes about how to deploy this on a live system
 
+## Info
+* Database Diagram
+![Image of diagram
+(https://github.com/Ignaciooleac/portfolio-app/app/assets/images/asdasdadadasdadada (1).png)]
+
 ## Built With
 
 * Rails 5.2.2.1
