@@ -35,6 +35,9 @@ rails db:seed
 
 This will populate our database with Categories and Tags, everything we need to create our own posts!
 
+* Example of what our seed file do
+[![Captura-de-Pantalla-2019-05-06-a-la-s-15-24-16.png](https://i.postimg.cc/7ZFWj45r/Captura-de-Pantalla-2019-05-06-a-la-s-15-24-16.png)](https://postimg.cc/yDTjSwhL)
+
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
