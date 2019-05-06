@@ -17,4 +17,11 @@ has_one_attached :avatar
     end
   end
 
+  def after_sign_in_path_for(resource)
+    if current_user.has_role? :admin
+      rails_admin.dashboard_path
+    else
+      user_path(current_user)
+    end
+  end
 end
