@@ -19,14 +19,16 @@ end
 
 users = User.all
 2.times do |n|
-    user = users.first
+    user = users.each
     title = "Sample Title#{n+1}"
-    tags = Tag.all.sample.name
-    category = Category.all.sample.name
+    tags = Tag.all.sample
+        for tags.each do |n|
+        tag_ids = Tag.name
+    category = Category.all.sample.id
     description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel sem non ipsum malesuada feugiat. Duis fringilla semper nibh quis tincidunt."
     Post.create!(user: user,
         title: title,
-                category: Category.find(22),
+                category: category,
                 description: description
                 )
 end
