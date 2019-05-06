@@ -35,15 +35,12 @@ rails db:seed
 
 This will populate our database with Categories and Tags, everything we need to create our own posts!
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+* Example of what our seed file do
+[![Captura-de-Pantalla-2019-05-06-a-la-s-15-24-16.png](https://i.postimg.cc/7ZFWj45r/Captura-de-Pantalla-2019-05-06-a-la-s-15-24-16.png)](https://postimg.cc/yDTjSwhL)
 
 ## Info
 * Database Diagram
-![Image of diagram
-(https://github.com/Ignaciooleac/portfolio-app/app/assets/images/asdasdadadasdadada (1).png)]
-
+[![asdasdadadasdadada-1.png](https://i.postimg.cc/C5Chn79z/asdasdadadasdadada-1.png)](https://postimg.cc/YL9KJ6rH)
 ## Built With
 
 * Rails 5.2.2.1
@@ -52,7 +49,7 @@ Add additional notes about how to deploy this on a live system
 * Trello Dashboard: https://trello.com/b/9nUqMx8A/todo
 ## Authors
 
-* **Ignacio Olea Cubillos** - *Initial work* - [PurpleBooth](https://github.com/Ignaciooleac)
+* **Ignacio Olea Cubillos** - *Initial work* - [Ignaciooleac](https://github.com/Ignaciooleac)
 
 See also the list of [contributors](https://github.com/Ignaciooleac/portfolio-app/graphs/contributors) who participated in this project.
 
@@ -60,10 +57,10 @@ See also the list of [contributors](https://github.com/Ignaciooleac/portfolio-ap
 
 * Thanks to:
 * My teachers at [Desafio Latam].
-....Erwin Enaguero
-....Pamela Riquelme
-....Guillermo Gibson
-....Alejandro Rodriguez
+  + Erwin Enaguero
+  + Pamela Riquelme
+  + Guillermo Gibson
+  + Alejandro Rodriguez
 
 * https://desafiolatam.com/
 * https://stackoverflow.com/
