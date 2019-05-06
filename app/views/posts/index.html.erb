@@ -1,38 +1,24 @@
-<h1>Listing all Post</h1>
-<p>
-  <%= link_to "Create new post", new_post_path %>
-</p>
-<table>
-  <tr>
-    <th>Created by</th>
-    <th>Title</th>
-    <th>Description</th> 
-    <th>Category</th>
-    <th>Tags</th>
-  </tr>
-  <% @posts.each do |post| %>
-  <tr>
-    <td>
-    <%= link_to "#{post.user.name}", user_path(post.user.id) %> 
-    <%= avatar_on_post(post) %> 
-    </td>
-    <td><%= post.title %></td>
-    <td><%= post.description %></td>
-    <td><%= post.category.name %></td>
-    <td>
-      <% post.tags.each do |tag|%>
-      <%= tag.name %>
-      <% end %>
-    </td>
-    <td>
-    <%= link_to post_thumbnail(post), post_path(post) %>
-    </td>
-    <% if current_user.id == post.user_id %>
-    <td><%=link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} %></td>
+<% title "Home" %>
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+    <div class="well col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <h7 align="center"><strong>Category:</strong> <%= post.category.name %></h7>
+      </div>
+      <div class="card border-0 shadow">
+        <h7 align="center"><strong>Tags:</strong> <% post.tags.each do |tag|%>
+          <%= tag.name %>
+          <% end %>
+        </h7>
+        <div>
+          <%= link_to post_thumbnail(post,500,250), post_path(post)%>
+        </div>
+        <div class="card-body text-center" style="padding-right:55px">
+          <h4 class="center card-title mb-0"><%= post.title %></h4>
+          <div class="card-text text-black-50">By:<%= link_to "#{post.user.name}", user_path(post.user.id) %>
+          </div>
+        </div>
+      </div>
+    </div>
     <% end %>
-    <td><%= link_to 'Show', post_path(post) %></td>
-    
-  </tr>
-  <% end %>
-</table>

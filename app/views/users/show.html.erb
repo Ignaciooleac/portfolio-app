@@ -1,33 +1,44 @@
-<h1>Showing User</h1>
-<%= "#{@user.name}" %>
-<%= user_avatar(@user)%>
-<%= link_to 'Back', posts_path %>
-
-<table>
-  <% @user.posts.each do |post| %>
-  <tr>
-    <td><%= post.category.name %></td>
-    <td>
-      <% post.tags.each do |tag|%>
-      <%= tag.name %>
-      <% end %>
-    </td>
-    <div class="row">
-      <div class="col-lg-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" <%= post_thumbnail(post) %></a> <div class="card-body">
-            <h4 class="card-title">
-              <%= link_to "#{post.title}", post_path(post)%>
-            </h4>
-            <p class="card-text"> <%= post.description %> </p>
+<% title "User Page" %>
+<h3 align="center">
+  <div class="well row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="card">
+        <div class="avatar">
+          <%= user_avatar(@user) %>
+        </div>
+        <div class="content">
+          <%= link_to "#{@user.name}", user_path(@user.id) %>
         </div>
       </div>
     </div>
-    <% if current_user.id == @user.id %>
-    <td><%=link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} %></td>
+</h3>
+
+<div class="col-xs-8 col-xs-offset-2">
+  <hr>
+  <h4 align="center">Posts</h4>
+  <hr>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <h7 align="center"><strong>Category:</strong> <%= post.category.name %></h7>
+      </div>
+      <div class="card border-0 shadow">
+        <h7 align="center"><strong>Tags:</strong> <% post.tags.each do |tag|%>
+          <%= tag.name %>
+          <% end %>
+        </h7>
+        <div>
+          <%= link_to post_thumbnail(post,500,250), post_path(post)%>
+        </div>
+        <div class="card-body text-center" style="padding-right:55px">
+          <h4 class="center card-title mb-0"><%= post.title %></h4>
+          <div class="card-text text-black-50">By:<%= link_to "#{post.user.name}", user_path(post.user.id) %>
+          </div>
+        </div>
+      </div>
+    </div>
     <% end %>
-    <td><%= link_to 'Show', post_path(post) %></td>
-  </tr>
-  <% end %>
-</table>

@@ -1,3 +1,4 @@
+<% title "Showing Post" %>
 <h3 align="center">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
@@ -11,13 +12,21 @@
       </div>
     </div>
 </h3>
-
+<h5 class="center col-xs-8 "><strong></strong></h5>
 <div class="well col-xs-8 col-xs-offset-2">
+  <div class="card border-0 shadow">
+    <h7 align="center"><strong>Category:</strong> <%= @post.category.name %></h7>
+  </div>
+  <div class="card border-0 shadow">
+    <h7 align="center"><strong>Tags:</strong> <% @post.tags.each do |tag|%>
+      <%= tag.name %>
+      <% end %>
+    </h7>
+  </div>
   <h2 align="center"><%= @post.title %></h2>
-  <%= @post.category.name %>
-  <%= post_thumbnail(@post) %>
+  <%= post_thumbnail(@post,770,450) %>
   <h4 class="center"><strong>Description:</strong></h4>
-  Description: <div class="center", style="overflow-wrap: break-word;"><%= @post.description %></div>
+  <div class="center" , style="overflow-wrap: break-word;"><%= @post.description %></div>
 </div>
 </div>
 <div class="well col-xs-8 col-xs-offset-2">
@@ -32,4 +41,3 @@
 <td><%= link_to "Edit", edit_post_path(@post) %> </td>
 <td><%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %></td>
 <% end %>
-<%= link_to 'Back', posts_path %>
