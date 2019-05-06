@@ -41,9 +41,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Info
 * Database Diagram
-![Alt text](/app/assets/images/asdasdadadasdadada (1).png)
-
-
+[![asdasdadadasdadada-1.png](https://i.postimg.cc/C5Chn79z/asdasdadadasdadada-1.png)](https://postimg.cc/YL9KJ6rH)
 ## Built With
 
 * Rails 5.2.2.1
